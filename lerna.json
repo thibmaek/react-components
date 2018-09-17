@@ -1,8 +1,7 @@
 {
   "packages": [
     "react/*",
-    "react-native/*",
-    "demo/*"
+    "react-native/*"
   ],
   "version": "independent",
   "command": {
