@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Monorepo collection of React & React Native components",
   "scripts": {
+    "lerna:publish": "lerna publish",
     "test": "exit 0"
   },
   "keywords": [
