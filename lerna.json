@@ -1,0 +1,17 @@
+{
+  "packages": [
+    "react/*",
+    "react-native/*",
+    "demo/*"
+  ],
+  "version": "independent",
+  "command": {
+    "publish": {
+      "ignoreChanges": ["*.md"]
+    },
+    "bootstrap": {
+      "ignore": "component-*",
+      "npmClientArgs": ["--no-package-lock"]
+    }
+  }
+}
