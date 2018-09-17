@@ -1,5 +1,7 @@
 # @thibmaek/react-components
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/thibmaek/react-components.svg)](https://greenkeeper.io/)
+
 Monorepo collection of [React](./react) & [React Native](./react-native) components.
 
 ## React components
