@@ -1,6 +1,7 @@
 import React from "react";
 import { SafeAreaView, ScrollView, View, Picker, Text } from "react-native";
 
+import diff from './utils';
 import styles from "./StyleSheet";
 
 export default class PlaygroundWrapper extends React.Component {
@@ -8,16 +9,17 @@ export default class PlaygroundWrapper extends React.Component {
     componentContainerStyle: {},
     componentState: {},
     contentContainerStyle: {},
-    exclude: "",
+    exclude: [],
     title: null
   };
 
   constructor(props) {
     super(props);
 
-    this.availableComponents = Object.keys(props.components)
-      .filter(component => component.charAt(0).match(/[A-Z]/))
-      .filter(component => props.exclude ? component.indexOf(props.exclude) === -1 : true)
+    const PascalCaseOnly = Object.keys(props.components)
+      .filter(component => component.charAt(0).match(/[A-Z]/));
+
+    this.availableComponents = diff(PascalCaseOnly, this.props.exclude)
       .map(item => ({ value: item, label: `${item}` }));
 
     this.state = {
