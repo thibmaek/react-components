@@ -10,7 +10,8 @@ export default class PlaygroundWrapper extends React.Component {
     componentState: {},
     contentContainerStyle: {},
     exclude: [],
-    title: null
+    infoTop: null,
+    title: null,
   };
 
   constructor(props) {
@@ -38,6 +39,7 @@ export default class PlaygroundWrapper extends React.Component {
       contentContainerStyle,
       componentContainerStyle,
       componentState,
+      infoTop,
       titleStyle,
       pickerStyle
     } = this.props;
@@ -52,6 +54,9 @@ export default class PlaygroundWrapper extends React.Component {
               <Text style={[styles.title, titleStyle]}>
                 {title.toUpperCase()}
               </Text>
+            )}
+            {infoTop && (
+              <Text style={styles.infoTop}>{infoTop}</Text>
             )}
             <Picker
               style={pickerStyle}
