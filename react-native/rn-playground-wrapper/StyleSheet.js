@@ -10,9 +10,6 @@ export default StyleSheet.create({
   componentContainer: {
     flex: 1,
   },
-  pickerContainer: {
-    flex: 1,
-  },
   title: {
     fontSize: 20,
     textAlign: 'center',
