@@ -53,7 +53,7 @@ export default class PlaygroundWrapper extends React.Component {
               </Text>
             )}
             <Picker
-              style={[styles.pickerContainer, pickerStyle]}
+              style={pickerStyle}
               selectedValue={this.state.component}
               onValueChange={value => this.setState({ component: value })}
             >
