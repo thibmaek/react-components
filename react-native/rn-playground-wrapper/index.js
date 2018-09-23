@@ -1,5 +1,5 @@
-import React from "react";
-import { SafeAreaView, ScrollView, View, Picker, Text } from "react-native";
+import React from 'react';
+import { SafeAreaView, ScrollView, View, Picker, Text } from 'react-native';
 
 import diff from './utils';
 import styles from "./StyleSheet";
@@ -35,20 +35,19 @@ export default class PlaygroundWrapper extends React.Component {
 
   render() {
     const {
-      title,
-      contentContainerStyle,
       componentContainerStyle,
       componentState,
+      contentContainerStyle,
       infoTop,
+      title,
       titleStyle,
-      pickerStyle
     } = this.props;
 
     const currentComponentState = componentState[this.state.component];
 
     return (
-      <SafeAreaView>
-        <ScrollView contentContainerStyle={this.props.contentContainerStyle}>
+      <SafeAreaView style={styles.safeAreaViewContainer}>
+        <ScrollView contentContainerStyle={[styles.scrollViewContainer, contentContainerStyle]}>
           <View>
             {title && (
               <Text style={[styles.title, titleStyle]}>
@@ -72,7 +71,7 @@ export default class PlaygroundWrapper extends React.Component {
               ))}
             </Picker>
           </View>
-          <View style={componentContainerStyle}>
+          <View style={[styles.componentContainer, componentContainerStyle]}>
             {currentComponentState ? (
               <this.CurrentComponent {...currentComponentState} />
             ) : (

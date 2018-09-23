@@ -1,11 +1,12 @@
 {
   "name": "@thibmaek/rn-playground-wrapper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Storybook-like wrapper component to render a collection of components quickly from an import all",
   "main": "index.js",
   "scripts": {
     "test": "exit 0"
   },
+  "types": "./index.d.ts",
   "license": "MIT",
   "peerDependencies": {
     "react": "^16.5.1",

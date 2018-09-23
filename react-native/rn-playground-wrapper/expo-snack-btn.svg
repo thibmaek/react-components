@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="290px" height="90px" viewBox="0 0 290 90" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 50 (54983) - http://www.bohemiancoding.com/sketch -->
+    <title>expo-snack-btn</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <rect id="path-1" x="4" y="2" width="282" height="82" rx="10"></rect>
+        <filter x="-2.5%" y="-6.1%" width="105.0%" height="117.1%" filterUnits="objectBoundingBox" id="filter-2">
+            <feOffset dx="0" dy="2" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="2" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feComposite in="shadowBlurOuter1" in2="SourceAlpha" operator="out" result="shadowBlurOuter1"></feComposite>
+            <feColorMatrix values="0 0 0 0 0   0 0 0 0 0   0 0 0 0 0  0 0 0 0.0932971014 0" type="matrix" in="shadowBlurOuter1"></feColorMatrix>
+        </filter>
+    </defs>
+    <g id="expo-snack-btn" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Rectangle">
+            <use fill="black" fill-opacity="1" filter="url(#filter-2)" xlink:href="#path-1"></use>
+            <rect stroke-opacity="0.1" stroke="#000020" stroke-width="1" stroke-linejoin="square" fill="#FFFFFF" fill-rule="evenodd" x="4.5" y="2.5" width="281" height="81" rx="10"></rect>
+        </g>
+        <g id="Group" transform="translate(23.000000, 13.000000)">
+            <text id="Try-it-out-on-Expo-S" font-family="MaisonNeue-Medium, Maison Neue" font-size="20" font-weight="400" fill="#000020">
+                <tspan x="81" y="25" fill-opacity="0.9">Try it out</tspan>
+                <tspan x="81" y="49" fill-opacity="0.4">on Expo Snack</tspan>
+            </text>
+            <g id="snack" stroke="#000020" stroke-linecap="round" stroke-linejoin="round" stroke-width="3">
+                <ellipse id="Oval" fill="#FFFFFF" fill-rule="nonzero" cx="51.7886179" cy="11.3333333" rx="7.96747967" ry="8"></ellipse>
+                <path d="M58.6665281,7.33333333 C57.7365432,12.9502425 52.9693152,17.062245 47.3862473,17.0632106 C47.0788386,17.0632106 46.7779017,17.0632106 46.4769648,17.0235911 C49.2584354,19.8434745 53.66077,20.1140076 56.7538426,17.6551278 C59.8469151,15.196248 60.6662575,10.7746724 58.6665281,7.33333333 Z" id="Shape" fill="#000020" fill-rule="nonzero"></path>
+                <polygon id="Shape" fill="#FFFFFF" fill-rule="nonzero" points="0 45.1121968 0.078726047 15.3333333 25.8943089 30.2211366 25.8943089 60"></polygon>
+                <polygon id="Shape" fill="#FFFFFF" fill-rule="nonzero" points="0 15 25.6881992 0 38.5094851 7.50164078 25.64909 15 38.5094851 22.5016408 25.64909 30"></polygon>
+                <polygon id="Shape" fill="#000020" fill-rule="nonzero" points="38.8005794 22.6666667 38.8005794 37.5993466 51.7101205 30.1313732 51.7886179 45.06732 25.8943089 60 25.8943089 30.1313732"></polygon>
+                <polygon id="Shape" fill="#000020" fill-rule="nonzero" points="38.5094851 7.33333333 38.5094851 22 25.8943089 14.6650623"></polygon>
+                <polygon id="Shape" fill="#FFFFFF" fill-rule="nonzero" points="38.5094851 22.6666667 51.1246612 29.9983957 38.5094851 37.3333333"></polygon>
+                <path d="M25.8943089,45.3333333 L0,30.6666667" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+                <polyline id="Shape" points="39.1734417 7.33333333 13.2791328 22.2167955 13.2791328 52"></polyline>
+                <path d="M39.1734417,22 L13.2791328,7.33333333" id="Shape" fill="#FFFFFF" fill-rule="nonzero"></path>
+            </g>
+        </g>
+    </g>
+</svg>
