@@ -16,8 +16,10 @@
     "access": "public"
   },
   "files": [
+    "index.d.ts",
     "index.js",
+    "README.md",
     "StyleSheet.js",
-    "README.md"
+    "utils.js"
   ]
 }
