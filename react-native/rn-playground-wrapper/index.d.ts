@@ -1,10 +1,13 @@
 declare module '@thibmaek/rn-playground-wrapper' {
 
-  import { ComponentClass } from 'react';
+  import { ComponentClass, ReactNode } from 'react';
 
   import { StyleProp, ViewStyle } from 'react-native';
 
   interface Props {
+    /* Components to show under the component view */
+    children?: ReactNode,
+
     /* Style to pass to the underlying View that wraps your current component */
     componentContainerStyle?: Object,
 
@@ -22,7 +25,10 @@ declare module '@thibmaek/rn-playground-wrapper' {
     contentContainerStyle?: StyleProp<ViewStyle>,
 
     /* Specific component to exclude from the passed components */
-    exclude?: string,
+    exclude?: string[],
+
+    /* Text to show beneath the picker */
+    infoTop?: string,
 
     pickerStyle?: StyleProp<ViewStyle>,
 
