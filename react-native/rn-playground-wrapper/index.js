@@ -1,24 +1,26 @@
 import React from 'react';
 import { SafeAreaView, ScrollView, View, Picker, Text } from 'react-native';
 
-import styles from './StyleSheet';
+import diff from './utils';
+import styles from "./StyleSheet";
 
 export default class PlaygroundWrapper extends React.Component {
   static defaultProps = {
     componentContainerStyle: {},
     componentState: {},
     contentContainerStyle: {},
-    exclude: '',
-    pickerStyle: {},
+    exclude: [],
+    infoTop: null,
     title: null,
   };
 
   constructor(props) {
     super(props);
 
-    this.availableComponents = Object.keys(props.components)
-      .filter(component => component.charAt(0).match(/[A-Z]/))
-      .filter(component => props.exclude ? component.indexOf(props.exclude) === -1 : true)
+    const PascalCaseOnly = Object.keys(props.components)
+      .filter(component => component.charAt(0).match(/[A-Z]/));
+
+    this.availableComponents = diff(PascalCaseOnly, this.props.exclude)
       .map(item => ({ value: item, label: `${item}` }));
 
     this.state = {
@@ -36,7 +38,7 @@ export default class PlaygroundWrapper extends React.Component {
       componentContainerStyle,
       componentState,
       contentContainerStyle,
-      pickerStyle,
+      infoTop,
       title,
       titleStyle,
     } = this.props;
@@ -51,6 +53,9 @@ export default class PlaygroundWrapper extends React.Component {
               <Text style={[styles.title, titleStyle]}>
                 {title.toUpperCase()}
               </Text>
+            )}
+            {infoTop && (
+              <Text style={styles.infoTop}>{infoTop}</Text>
             )}
             <Picker
               style={pickerStyle}

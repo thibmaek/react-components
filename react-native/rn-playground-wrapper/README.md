@@ -21,6 +21,7 @@ Like Storybook, but without the setup and built with zero dependencies.
 - Shows a picker to pick a component you want to view
 - Pass down props to the component so you can still tweak it
 - Adjustable styles
+- Exclude components from rendering in the view
 
 ## Usage
 
@@ -61,7 +62,37 @@ const AtomsPlayground = () => <PlaygroundWrapper
 />
 ```
 
-## Signature
+## Excluding certain components
+
+Because you might have utils or other exported functions, constants etc in your file, you'll probably end up with those imported by the star selector.
+To avoid displaying these components in the input list & rendered view, you can pass the `exclude` prop as an array of component names to be omitted from the wrapper.
+
+```jsx
+// atoms/Button.js
+export const MY_EXPORT = {…}
+export const DEFAULT_TITLE = 'Some button'
+export default props => <Button title={props.title || DEFAULT_TITLE} onPress={props.onPress} />
+
+// atoms/index.js
+export * as Button from './Button.js';
+
+// screens/AtomsPlayground.js
+import * as Atoms from '../atoms'; // <- Button, DEFAULT_TITLE, MY_EXPORT
+
+const AtomsPlayground = () => <PlaygroundWrapper
+  components={Comps}
+  exclude={['MY_EXPORT', 'DEFAULT_TITLE']}
+  componentState={{
+    Button: {
+      title: "Overwrite",
+      onPress: () => alert('Button pressed')
+    }
+  }}
+  title="Atoms"
+/>
+```
+
+### Signature
 
 ```typescript
 type TProps = {
@@ -77,8 +108,8 @@ type TProps = {
   componentState?: Object,
   /* Style to pass to the underlying ScrollView */
   contentContainerStyle?: Object,
-  /* Specific component to exclude from the passed components */
-  exclude?: string,
+  /* Specific components to exclude from the passed components */
+  exclude?: string[],
   /* Title which appears above the Picker component */
   title?: string,
   /* Style to pass to the title Text view */
