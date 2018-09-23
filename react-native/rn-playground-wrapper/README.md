@@ -2,6 +2,13 @@
 
 <img src="./rn-playground-wrapper.gif" align="left" style="margin-right: 25px" width="320">
 
+<div>
+  <img src="https://badgen.net/badge/license/MIT/blue" />
+  <img src="https://badgen.net/npm/v/@thibmaek/rn-playground-wrapper/latest" />
+  <a href="https://www.notion.so/thibmaek/16e4db66f4cd442fb432b6fc1dcd77e1?v=863ff57229564aa483a4947095a8e04b"><img src="https://badgen.net/badge/Roadmap/notion.so/0f674c" /></a>
+  <a href="https://snack.expo.io/@thibmaek/rnplaygroundwrapper"><img src="./expo-snack-btn.svg" width="150"/></a>
+</div>
+
 Storybook-like wrapper component to render a collection of components quickly from an import all
 Useful if you apply [Atomic design](bradfrost.com/blog/post/atomic-web-design/) or some derived version of it.
 
