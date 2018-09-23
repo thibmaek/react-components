@@ -78,6 +78,7 @@ export default class PlaygroundWrapper extends React.Component {
               <this.CurrentComponent />
             )}
           </View>
+          {this.props.children}
         </ScrollView>
       </SafeAreaView>
     );
