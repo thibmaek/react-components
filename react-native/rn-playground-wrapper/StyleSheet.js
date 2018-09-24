@@ -13,5 +13,8 @@ export default StyleSheet.create({
   title: {
     fontSize: 20,
     textAlign: 'center',
-  }
+  },
+	infoTop: {
+		textAlign: 'center',
+	},
 })

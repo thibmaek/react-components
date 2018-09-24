@@ -1,7 +1,7 @@
 import React from 'react';
 import { SafeAreaView, ScrollView, View, Picker, Text } from 'react-native';
 
-import diff from './utils';
+import { diff } from './utils';
 import styles from "./StyleSheet";
 
 export default class PlaygroundWrapper extends React.Component {
@@ -39,6 +39,7 @@ export default class PlaygroundWrapper extends React.Component {
       componentState,
       contentContainerStyle,
       infoTop,
+			pickerStyle,
       title,
       titleStyle,
     } = this.props;
