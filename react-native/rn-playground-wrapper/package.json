@@ -21,5 +21,8 @@
     "README.md",
     "StyleSheet.js",
     "utils.js"
-  ]
+  ],
+  "dependencies": {
+    "prop-types": "^15.6.2"
+  }
 }

@@ -1,10 +1,25 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, View, Picker, Text } from 'react-native';
+import { SafeAreaView, ScrollView, View, Picker, Text, ViewPropTypes } from 'react-native';
+import Proptypes from 'prop-types';
 
 import { diff } from './utils';
 import styles from "./StyleSheet";
 
+const TProps = {
+  componentContainerStyle: ViewPropTypes.style,
+  components: Proptypes.objectOf(Proptypes.node).isRequired,
+  componentState: Proptypes.object,
+  contentContainerStyle: ViewPropTypes.style,
+  exclude: Proptypes.arrayOf(Proptypes.string),
+  infoTop: Proptypes.string,
+  pickerStyle: ViewPropTypes.style,
+  title: Proptypes.string,
+  titleStyle: ViewPropTypes.style,
+}
+
 export default class PlaygroundWrapper extends React.Component {
+  static propTypes = TProps;
+
   static defaultProps = {
     componentContainerStyle: {},
     componentState: {},
@@ -39,7 +54,7 @@ export default class PlaygroundWrapper extends React.Component {
       componentState,
       contentContainerStyle,
       infoTop,
-			pickerStyle,
+      pickerStyle,
       title,
       titleStyle,
     } = this.props;

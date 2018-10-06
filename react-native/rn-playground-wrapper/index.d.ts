@@ -30,6 +30,7 @@ declare module '@thibmaek/rn-playground-wrapper' {
     /* Text to show beneath the picker */
     infoTop?: string,
 
+    /* Custom style to be applied to picker */
     pickerStyle?: StyleProp<ViewStyle>,
 
     /* Title which appears above the Picker component */
