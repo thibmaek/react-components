@@ -9,7 +9,10 @@
       "ignoreChanges": ["*.md"]
     },
     "bootstrap": {
-      "ignore": "component-*",
+      "ignore": [
+        "component-*",
+        "demo*"
+      ],
       "npmClientArgs": ["--no-package-lock"]
     }
   }

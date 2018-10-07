@@ -3,4 +3,5 @@ node_modules
 
 # Output & artifacts
 *.log
-demo/
+.expo
+.watchmanconfig
