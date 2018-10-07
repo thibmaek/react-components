@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated, Easing } from 'react-native';
+import { Animated, Easing, Dimensions } from 'react-native';
 import Proptypes from 'prop-types';
 
 const BOUNCE_DIRECTIONS = Object.freeze({
