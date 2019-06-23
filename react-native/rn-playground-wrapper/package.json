@@ -2,27 +2,21 @@
   "name": "@thibmaek/rn-playground-wrapper",
   "version": "2.0.4",
   "description": "Storybook-like wrapper component to render a collection of components quickly from an import all",
-  "main": "index.js",
+  "main": "dist/PlaygroundWrapper.js",
+  "typings": "dist/PlaygroundWrapper.d.ts",
   "scripts": {
-    "test": "exit 0"
+    "build": "tsc"
   },
-  "types": "./index.d.ts",
   "license": "MIT",
   "peerDependencies": {
-    "react": "^16.5.1",
-    "react-native": "^0.57.0"
+    "react": "^16.8.6",
+    "react-native": "^0.59.9"
   },
   "publishConfig": {
     "access": "public"
   },
   "files": [
-    "index.d.ts",
-    "index.js",
-    "README.md",
-    "StyleSheet.js",
-    "utils.js"
-  ],
-  "dependencies": {
-    "prop-types": "^15.6.2"
-  }
+    "dist",
+    "README.md"
+  ]
 }

@@ -1,25 +1,27 @@
 import React from 'react';
-import { SafeAreaView, ScrollView, View, Picker, Text, ViewPropTypes } from 'react-native';
-import Proptypes from 'prop-types';
+import { SafeAreaView, ScrollView, View, Picker, Text, StyleProp, ViewStyle, TextStyle } from 'react-native';
 
 import { diff } from './utils';
-import styles from "./StyleSheet";
+import styles from "./styles";
 
-const TProps = {
-  componentContainerStyle: ViewPropTypes.style,
-  components: Proptypes.objectOf(Proptypes.node).isRequired,
-  componentState: Proptypes.object,
-  contentContainerStyle: ViewPropTypes.style,
-  exclude: Proptypes.arrayOf(Proptypes.string),
-  infoTop: Proptypes.string,
-  pickerStyle: ViewPropTypes.style,
-  title: Proptypes.string,
-  titleStyle: ViewPropTypes.style,
+interface Props {
+  componentContainerStyle?: StyleProp<ViewStyle>,
+  components: string[],
+  componentState?: Object,
+  contentContainerStyle?: StyleProp<ViewStyle>,
+  exclude?: string[],
+  infoTop?: string,
+  pickerStyle?: StyleProp<ViewStyle>,
+  title?: string,
+  titleStyle: StyleProp<TextStyle>
+};
+
+interface State {
+  component: string,
+  pickerVisible: boolean,
 }
 
-export default class PlaygroundWrapper extends React.Component {
-  static propTypes = TProps;
-
+export default class PlaygroundWrapper extends React.Component<Props, State> {
   static defaultProps = {
     componentContainerStyle: {},
     componentState: {},
@@ -28,6 +30,8 @@ export default class PlaygroundWrapper extends React.Component {
     infoTop: null,
     title: null,
   };
+
+  availableComponents: Array<{ value: string, label: string }>
 
   constructor(props) {
     super(props);

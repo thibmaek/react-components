@@ -1,6 +1,5 @@
 import React from 'react';
 import { Animated, Easing, Dimensions } from 'react-native';
-import Proptypes from 'prop-types';
 
 const BOUNCE_DIRECTIONS = Object.freeze({
   BOTTOM: 'bottom',
@@ -9,20 +8,17 @@ const BOUNCE_DIRECTIONS = Object.freeze({
   TOP: 'top',
 });
 
-const TProps = {
-  bounceInFrom: Proptypes.oneOf(['bottom', 'left', 'right', 'top']),
-  children: Proptypes.node,
-  topLevel: Proptypes.bool,
-};
+interface Props {
+  bounceInFrom: 'bottom' | 'left' | 'right' | 'top';
+  topLevel: boolean,
+}
 
-class Bounce extends React.Component {
+class Bounce extends React.Component<Props> {
 
   static defaultProps = {
     bounceInFrom: BOUNCE_DIRECTIONS.LEFT,
     topLevel: true,
   };
-
-  static propTypes = TProps;
 
   animatedValue = new Animated.Value(0);
   deviceHeight = Dimensions.get("screen").height;
@@ -34,8 +30,9 @@ class Bounce extends React.Component {
     Animated.spring(
       this.animatedValue,
       {
-        duration: 4000,
-        easing: Easing.quad(100),
+        // delay: 4000,
+        // duration: 4000,
+        // easing: Easing.quad(100),
         toValue: 1,
         useNativeDriver: true,
       }
