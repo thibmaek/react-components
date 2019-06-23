@@ -1,26 +1,22 @@
 {
   "name": "@thibmaek/rn-bounce",
-  "version": "1.0.1",
+  "version": "3.0.0",
   "description": "Wrapper component for animating Views with a bounce-in effect",
-  "main": "index.js",
+  "main": "dist/Bounce.js",
+  "typings": "dist/Bounce.d.ts",
   "scripts": {
-    "test": "exit 0"
+    "build": "tsc"
   },
-  "types": "./index.d.ts",
   "license": "MIT",
   "peerDependencies": {
-    "react": "^16.5.1",
-    "react-native": "^0.57.0"
+    "react": "^16.8.6",
+    "react-native": "^0.59.9"
   },
   "publishConfig": {
     "access": "public"
   },
   "files": [
-    "index.d.ts",
-    "index.js",
+    "dist",
     "README.md"
-  ],
-  "dependencies": {
-    "prop-types": "^15.6.2"
-  }
+  ]
 }

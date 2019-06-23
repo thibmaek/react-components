@@ -1,7 +1,11 @@
 # Dependencies
 node_modules
 
-# Output & artifacts
+# Config and output
 *.log
 .expo
 .watchmanconfig
+
+# Build artifacts
+react-native/*/dist
+react/*/dist
