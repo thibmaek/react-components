@@ -62,6 +62,25 @@ const AtomsPlayground = () => <PlaygroundWrapper
 />
 ```
 
+## Getting the active component
+
+The active component is returned as a render prop to children components
+
+```jsx
+import * as Atoms from '../../../components/atoms/';
+
+const AtomsPlayground = () => (
+  <PlaygroundWrapper
+    components={Comps}
+    title="Atoms"
+  >
+    {({ activeComponent }) => (
+      <Text>Currently viewing: {activeComponent}</Text>
+    )}
+  </PlaygroundWrapper>
+)
+```
+
 ## Excluding certain components
 
 Because you might have utils or other exported functions, constants etc in your file, you'll probably end up with those imported by the star selector.
