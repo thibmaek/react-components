@@ -1,6 +1,6 @@
 {
   "name": "@thibmaek/rn-playground-wrapper",
-  "version": "2.0.4",
+  "version": "2.1.0",
   "description": "Storybook-like wrapper component to render a collection of components quickly from an import all",
   "main": "index.js",
   "scripts": {
