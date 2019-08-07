@@ -12,7 +12,7 @@ declare module '@thibmaek/rn-playground-wrapper' {
     componentContainerStyle?: Object,
 
     /* A collection of components to pass from an import all */
-    components: string[],
+    components: any,
 
     /*
       Component state to pass down via props
