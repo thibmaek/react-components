@@ -48,6 +48,10 @@ export default class PlaygroundWrapper extends React.Component {
     return this.props.components[this.state.component];
   }
 
+  get hasValidChildren() {
+    return this.props.children && this.props.children instanceof Function;
+  }
+
   render() {
     const {
       componentContainerStyle,
@@ -94,7 +98,7 @@ export default class PlaygroundWrapper extends React.Component {
               <this.CurrentComponent />
             )}
           </View>
-          {this.props.children({ activeComponent: this.state.component })}
+          {this.hasValidChildren && this.props.children({ activeComponent: this.state.component })}
         </ScrollView>
       </SafeAreaView>
     );
