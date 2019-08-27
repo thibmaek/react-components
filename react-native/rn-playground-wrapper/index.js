@@ -15,6 +15,8 @@ const TProps = {
   pickerStyle: ViewPropTypes.style,
   title: Proptypes.string,
   titleStyle: ViewPropTypes.style,
+  sortComponentKeys: Proptypes.bool,
+  firstComponent: Proptypes.string,
 }
 
 export default class PlaygroundWrapper extends React.Component {
@@ -27,6 +29,8 @@ export default class PlaygroundWrapper extends React.Component {
     exclude: [],
     infoTop: null,
     title: null,
+    sortComponentKeys: false,
+    firstComponent: undefined,
   };
 
   constructor(props) {
@@ -35,8 +39,19 @@ export default class PlaygroundWrapper extends React.Component {
     const PascalCaseOnly = Object.keys(props.components)
       .filter(component => component.charAt(0).match(/[A-Z]/));
 
-    this.availableComponents = diff(PascalCaseOnly, this.props.exclude)
-      .map(item => ({ value: item, label: `${item}` }));
+    let comps = diff(PascalCaseOnly, this.props.exclude)
+
+    if (props.sortComponentKeys) {
+      comps.sort();
+    }
+
+    if (props.firstComponent && comps.includes(props.firstComponent)) {
+      const insertedComp = comps.find(i => i === props.firstComponent);
+      comps = comps.filter(comp => comp !== props.firstComponent);
+      comps = [insertedComp, ...comps];
+    }
+
+    this.availableComponents = comps.map(item => ({ value: item, label: `${item}` }))
 
     this.state = {
       component: this.availableComponents[0].label,
