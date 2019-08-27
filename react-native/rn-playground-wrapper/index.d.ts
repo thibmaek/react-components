@@ -24,6 +24,13 @@ declare module '@thibmaek/rn-playground-wrapper' {
     /* Style to pass to the underlying ScrollView */
     contentContainerStyle?: StyleProp<ViewStyle>,
 
+
+    /* If provided, the keys in the picker will be sorted alphabetically */
+    sortComponentKeys?: boolean,
+
+    /* Temporarily put a specific component at the top of the picker */
+    firstComponent?: string,
+
     /* Specific component to exclude from the passed components */
     exclude?: string[],
 
