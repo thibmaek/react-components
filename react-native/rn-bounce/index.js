@@ -34,10 +34,10 @@ class Bounce extends React.Component {
     Animated.spring(
       this.animatedValue,
       {
-        duration: 4000,
         easing: Easing.quad(100),
         toValue: 1,
         useNativeDriver: true,
+        friction: 8,
       }
     ).start();
   }
@@ -51,8 +51,8 @@ class Bounce extends React.Component {
   }
 
   get transformOutputRange() {
-    const positiveRange = [0, this.deviceWidth / 2, this.deviceWidth / 4, 0];
-    const negativeRange = [this.deviceHeight, this.deviceHeight / 2, this.deviceHeight / 4, 0];
+    const positiveRange = [-800, 0];
+    const negativeRange = [800, 0];
 
     switch (this.props.bounceInFrom) {
       case BOUNCE_DIRECTIONS.TOP:
@@ -70,7 +70,7 @@ class Bounce extends React.Component {
 
   render() {
     const translationValue = this.animatedValue.interpolate({
-      inputRange: [0, 0.5, 0.75, 1],
+      inputRange: [0, 1],
       outputRange: this.transformOutputRange,
     });
 
