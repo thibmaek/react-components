@@ -1,16 +1,19 @@
 declare module '@thibmaek/rn-bounce' {
 
   import { ComponentClass, ReactNode } from 'react';
+  import { StyleProp, ViewStyle } from 'react-native';
 
   interface Props {
     /* Component tree which gets animated with the Bounce component */
-    children?: ReactNode,
+    children?: ReactNode;
 
     /* Direction to bounce in from, default left */
-    bounceInFrom?: 'bottom' | 'left' | 'right' | 'top',
+    bounceInFrom?: 'bottom' | 'left' | 'right' | 'top';
 
     /* Should the rendered view appear at top z level */
-    topLevel?: boolean,
+    topLevel?: boolean;
+
+    style: StyleProp<ViewStyle>;
   }
 
   const Bounce: ComponentClass<Props>

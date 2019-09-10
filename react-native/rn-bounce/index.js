@@ -11,8 +11,9 @@ const BOUNCE_DIRECTIONS = Object.freeze({
 
 const TProps = {
   bounceInFrom: Proptypes.oneOf(['bottom', 'left', 'right', 'top']),
-  children: Proptypes.node,
+  children: Proptypes.node.isRequired,
   topLevel: Proptypes.bool,
+  style: Proptypes.object,
 };
 
 class Bounce extends React.Component {
@@ -74,15 +75,20 @@ class Bounce extends React.Component {
       outputRange: this.transformOutputRange,
     });
 
+    const { topLevel, children, style } = this.props;
+
     return (
       <Animated.View style={[
-        this.props.topLevel && { zIndex: 1 },
-        { transform: [{
+        topLevel && { zIndex: 1 },
+        {
+          transform: [{
           ...(this.directionIsHorizontal ? { translateX: translationValue } : {}),
           ...(this.directionIsVertical ? { translateY: translationValue } : {}),
-        }] }
+          }]
+        },
+        style,
       ]}>
-        {this.props.children}
+        {children}
       </Animated.View>
     );
   }
