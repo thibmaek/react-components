@@ -13,7 +13,7 @@ declare module '@thibmaek/rn-bounce' {
     /* Should the rendered view appear at top z level */
     topLevel?: boolean;
 
-    style?: StyleProp<ViewStyle>;
+    style?: StyleProp<ViewStyle> | StyleProp<ViewStyle>[];
   }
 
   const Bounce: ComponentClass<Props>
