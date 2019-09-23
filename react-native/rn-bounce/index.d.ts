@@ -17,10 +17,16 @@ declare module '@thibmaek/rn-bounce' {
     style?: StyleProp<ViewStyle> | StyleProp<ViewStyle>[];
 
     /**
-     * Handler called immediatly after the animation has finished.
+     * Handler called immediatly after triggering the animation.
      * Will be called as the callback passed to Animated.start()
      */
-    onAppear: () => void;
+    onWillAppear: () => void;
+
+    /**
+     * Handler called immediatly after the animation has finished.
+     * Will be called as the callback passed to Animated.start(result.finished)
+     */
+    onDidAppear: () => void;
   }
 
   const Bounce: ComponentClass<Props>

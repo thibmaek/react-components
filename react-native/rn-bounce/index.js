@@ -32,8 +32,12 @@ class Bounce extends React.Component {
         friction: 8,
       }
     ).start((result) => {
-      if (result.finished) {
-        this.props.onAppear();
+      if (this.props.onWillAppear instanceof Function) {
+        this.props.onWillAppear();
+      } else {
+        if (result.finished && this.props.onDidAppear instanceof Function) {
+          this.props.onDidAppear();
+        }
       }
     });
   }
