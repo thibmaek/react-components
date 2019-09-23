@@ -13,7 +13,8 @@ class Bounce extends React.Component {
   static defaultProps = {
     bounceInFrom: BOUNCE_DIRECTIONS.LEFT,
     topLevel: true,
-    onAppear: () => {},
+    onWillAppear: () => {},
+    onDidAppear: () => {},
   };
 
   animatedValue = new Animated.Value(0);
@@ -32,12 +33,10 @@ class Bounce extends React.Component {
         friction: 8,
       }
     ).start((result) => {
-      if (this.props.onWillAppear instanceof Function) {
+      if (!result.finished) {
         this.props.onWillAppear();
       } else {
-        if (result.finished && this.props.onDidAppear instanceof Function) {
-          this.props.onDidAppear();
-        }
+        this.props.onDidAppear();
       }
     });
   }

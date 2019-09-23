@@ -20,13 +20,13 @@ declare module '@thibmaek/rn-bounce' {
      * Handler called immediatly after triggering the animation.
      * Will be called as the callback passed to Animated.start()
      */
-    onWillAppear: () => void;
+    onWillAppear?: () => void;
 
     /**
      * Handler called immediatly after the animation has finished.
      * Will be called as the callback passed to Animated.start(result.finished)
      */
-    onDidAppear: () => void;
+    onDidAppear?: () => void;
   }
 
   const Bounce: ComponentClass<Props>
