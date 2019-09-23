@@ -13,7 +13,14 @@ declare module '@thibmaek/rn-bounce' {
     /* Should the rendered view appear at top z level */
     topLevel?: boolean;
 
+    /* Style applied to the outer Animated.View component */
     style?: StyleProp<ViewStyle> | StyleProp<ViewStyle>[];
+
+    /**
+     * Handler called immediatly after the animation has finished.
+     * Will be called as the callback passed to Animated.start()
+     */
+    onAppear: () => void;
   }
 
   const Bounce: ComponentClass<Props>

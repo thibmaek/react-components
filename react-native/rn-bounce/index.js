@@ -13,6 +13,7 @@ class Bounce extends React.Component {
   static defaultProps = {
     bounceInFrom: BOUNCE_DIRECTIONS.LEFT,
     topLevel: true,
+    onAppear: () => {},
   };
 
   animatedValue = new Animated.Value(0);
@@ -30,7 +31,11 @@ class Bounce extends React.Component {
         useNativeDriver: true,
         friction: 8,
       }
-    ).start();
+    ).start((result) => {
+      if (result.finished) {
+        this.props.onAppear();
+      }
+    });
   }
 
   get directionIsHorizontal() {
