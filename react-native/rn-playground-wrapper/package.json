@@ -3,11 +3,13 @@
   "version": "2.2.1",
   "description": "Storybook-like wrapper component to render a collection of components quickly from an import all",
   "main": "index.js",
+  "license": "MIT",
+  "homepage": "https://github.com/thibmaek/react-components",
+  "author": "Thibault Maekelbergh <thibault.maekelbergh@icloud.com>",
   "scripts": {
     "test": "exit 0"
   },
   "types": "./index.d.ts",
-  "license": "MIT",
   "peerDependencies": {
     "react": "^16.5.1",
     "react-native": "^0.57.0"
