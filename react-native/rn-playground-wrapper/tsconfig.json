@@ -1,0 +1,17 @@
+{
+  "extends": "../../tsconfig.json",
+  "compilerOptions": {
+    "outDir": "./dist",
+    "jsx": "react-native",
+    "lib": [
+      "es2017"
+    ],
+  },
+  "exclude": [
+    "node_modules",
+    "!node_modules/@types",
+  ],
+  "files": [
+    "index.tsx"
+  ]
+ }

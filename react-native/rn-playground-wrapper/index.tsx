@@ -1,27 +1,48 @@
-import React from 'react';
-import { SafeAreaView, ScrollView, View, Picker, Text, ViewPropTypes } from 'react-native';
-import Proptypes from 'prop-types';
+import React, { ReactNode } from 'react';
+import { SafeAreaView, ScrollView, View, Picker, Text, ViewPropTypes, StyleProp, ViewStyle, TextStyle } from 'react-native';
 
 import { diff } from './utils';
 import styles from "./StyleSheet";
 
-const TProps = {
-  componentContainerStyle: ViewPropTypes.style,
-  components: Proptypes.objectOf(Proptypes.node).isRequired,
-  componentState: Proptypes.object,
-  contentContainerStyle: ViewPropTypes.style,
-  exclude: Proptypes.arrayOf(Proptypes.string),
-  infoTop: Proptypes.string,
-  pickerStyle: ViewPropTypes.style,
-  title: Proptypes.string,
-  titleStyle: ViewPropTypes.style,
-  sortComponentKeys: Proptypes.bool,
-  firstComponent: Proptypes.string,
+interface Props {
+  /* Components to show under the component view */
+  children?: ({
+    activeComponent: string
+  }) => ReactNode,
+  /* Style to pass to the underlying View that wraps your current component */
+  componentContainerStyle?: Object,
+  /* A collection of components to pass from an import all */
+  components: any,
+  /*
+    Component state to pass down via props
+    The key must have the same value as your component name.
+    So with a component ListItem passed:
+  */
+  componentState?: Object,
+  /* Style to pass to the underlying ScrollView */
+  contentContainerStyle?: StyleProp<ViewStyle>,
+  /* If provided, the keys in the picker will be sorted alphabetically */
+  sortComponentKeys?: boolean,
+  /* Temporarily put a specific component at the top of the picker */
+  firstComponent?: string,
+  /* Specific component to exclude from the passed components */
+  exclude?: string[],
+  /* Text to show beneath the picker */
+  infoTop?: string,
+  /* Custom style to be applied to picker */
+  pickerStyle?: StyleProp<ViewStyle>,
+  /* Title which appears above the Picker component */
+  title?: string,
+  /* Style to pass to the title Text view */
+  titleStyle?: StyleProp<TextStyle>,
 }
 
-export default class PlaygroundWrapper extends React.Component {
-  static propTypes = TProps;
+interface State {
+  component: string;
+  pickerVisible: boolean;
+}
 
+export default class PlaygroundWrapper extends React.Component<Props, State> {
   static defaultProps = {
     componentContainerStyle: {},
     componentState: {},
@@ -33,7 +54,7 @@ export default class PlaygroundWrapper extends React.Component {
     firstComponent: undefined,
   };
 
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
 
     const PascalCaseOnly = Object.keys(props.components)
@@ -58,6 +79,8 @@ export default class PlaygroundWrapper extends React.Component {
       pickerVisible: false
     };
   }
+
+  availableComponents: Array<{ value: any, label: string }>;
 
   get CurrentComponent() {
     return this.props.components[this.state.component];

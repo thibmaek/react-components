@@ -14,7 +14,7 @@ export default StyleSheet.create({
     fontSize: 20,
     textAlign: 'center',
   },
-	infoTop: {
-		textAlign: 'center',
-	},
+  infoTop: {
+    textAlign: 'center',
+  },
 })

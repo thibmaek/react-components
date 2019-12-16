@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "description": "Monorepo collection of React & React Native components",
   "scripts": {
+    "build:all": "lerna run build",
     "lerna:bootstrap": "lerna bootstrap",
     "lerna:publish": "lerna publish",
     "test": "exit 0"
@@ -14,23 +15,15 @@
   "author": "Thibault Maekelbergh <thibault.maekelbergh@icloud.com>",
   "license": "MIT",
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.3",
-    "babel-env": "^2.4.1",
-    "babel-loader": "^8.0.2",
-    "babel-preset-env": "^1.7.0",
-    "babel-preset-react": "^6.24.1",
-    "babel-preset-stage-0": "^6.24.1",
-    "create-react-native-app": "latest",
-    "expo-cli": "latest",
-    "flow-bin": "^0.81.0",
-    "jest": "^23.6.0",
-    "lerna": "^3.4.0",
-    "react": "^16.5.1",
-    "react-dom": "^16.5.1",
-    "react-native": "^0.57.0"
+    "@types/react": "^16.9.16",
+    "@types/react-native": "^0.60.25",
+    "jest": "^24.9.0",
+    "lerna": "^3.19.0",
+    "typescript": "^3.7.3"
   },
   "dependencies": {
-    "prop-types": "^15.6.2"
+    "react": "^16.12.0",
+    "react-dom": "^16.12.0",
+    "react-native": "^0.61.5"
   }
 }

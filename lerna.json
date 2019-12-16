@@ -9,8 +9,7 @@
     },
     "bootstrap": {
       "ignore": [
-        "component-*",
-        "demo*"
+        "component-*"
       ],
       "npmClientArgs": ["--no-package-lock"]
     }
