@@ -1,5 +1,5 @@
 import React from 'react';
-import { Animated, Easing, Dimensions } from 'react-native';
+import { Animated, Easing, Dimensions, AccessibilityInfo } from 'react-native';
 
 const BOUNCE_DIRECTIONS = Object.freeze({
   BOTTOM: 'bottom',
@@ -15,6 +15,7 @@ class Bounce extends React.Component {
     topLevel: true,
     onWillAppear: () => {},
     onDidAppear: () => {},
+    prefersReducedMotion: false,
   };
 
   animatedValue = new Animated.Value(0);
@@ -22,6 +23,9 @@ class Bounce extends React.Component {
   deviceWidth = Dimensions.get("screen").width;
 
   componentDidMount() {
+    AccessibilityInfo.addEventListener('reduceMotionChanged', this.handleAccessibilityOptions);
+    AccessibilityInfo.isReduceMotionEnabled().then(this.handleAccessibilityOptions);
+
     this.animatedValue.setValue(0);
 
     Animated.spring(
@@ -40,6 +44,8 @@ class Bounce extends React.Component {
       }
     });
   }
+
+  handleAccessibilityOptions = (prefersReducedMotion) => this.setState(ps => ({ ...ps, prefersReducedMotion }));
 
   get directionIsHorizontal() {
     return this.props.bounceInFrom === BOUNCE_DIRECTIONS.LEFT || this.props.bounceInFrom === BOUNCE_DIRECTIONS.RIGHT;
@@ -68,6 +74,10 @@ class Bounce extends React.Component {
   }
 
   render() {
+    if (this.state.prefersReducedMotion) {
+      return this.props.children;
+    }
+
     const translationValue = this.animatedValue.interpolate({
       inputRange: [0, 1],
       outputRange: this.transformOutputRange,

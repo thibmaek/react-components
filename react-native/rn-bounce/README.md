@@ -16,6 +16,7 @@ Simple animation wrapper component to bounce animate a view on the screen. Uses 
 **Features:**
 
 - Just wrap your component and give it a direction
+- Respects reduced motion preference to skip or show the animation
 
 ## Usage
 
