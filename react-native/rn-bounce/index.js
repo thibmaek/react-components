@@ -18,6 +18,11 @@ class Bounce extends React.Component {
     prefersReducedMotion: false,
   };
 
+  constructor({ prefersReducedMotion, ...props }) {
+    super(props);
+    this.state = { prefersReducedMotion };
+  }
+
   animatedValue = new Animated.Value(0);
   deviceHeight = Dimensions.get("screen").height;
   deviceWidth = Dimensions.get("screen").width;
