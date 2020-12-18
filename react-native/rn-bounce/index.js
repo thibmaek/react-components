@@ -18,9 +18,9 @@ class Bounce extends React.Component {
     prefersReducedMotion: false,
   };
 
-  constructor({ prefersReducedMotion, ...props }) {
+  constructor(props) {
     super(props);
-    this.state = { prefersReducedMotion };
+    this.state = { prefersReducedMotion: props.prefersReducedMotion };
   }
 
   animatedValue = new Animated.Value(0);
