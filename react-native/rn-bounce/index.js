@@ -79,10 +79,6 @@ class Bounce extends React.Component {
   }
 
   render() {
-    if (this.state.prefersReducedMotion) {
-      return this.props.children;
-    }
-
     const translationValue = this.animatedValue.interpolate({
       inputRange: [0, 1],
       outputRange: this.transformOutputRange,
@@ -94,10 +90,10 @@ class Bounce extends React.Component {
       <Animated.View style={[
         topLevel && { zIndex: 1 },
         {
-          transform: [{
+          transform: !this.state.prefersReducedMotion ? [{
           ...(this.directionIsHorizontal ? { translateX: translationValue } : {}),
           ...(this.directionIsVertical ? { translateY: translationValue } : {}),
-          }]
+          }]: []
         },
         style,
       ]}>
