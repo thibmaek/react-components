@@ -16,6 +16,10 @@ class Bounce extends React.Component {
     onWillAppear: () => {},
     onDidAppear: () => {},
     prefersReducedMotion: false,
+    animationConfig: {
+      friction: 8,
+      easing: Easing.quad(100),
+    },
   };
 
   constructor(props) {
@@ -36,10 +40,9 @@ class Bounce extends React.Component {
     Animated.spring(
       this.animatedValue,
       {
-        easing: Easing.quad(100),
+        ...this.props.animationConfig,
         toValue: 1,
         useNativeDriver: true,
-        friction: 8,
       }
     ).start((result) => {
       if (!result.finished) {

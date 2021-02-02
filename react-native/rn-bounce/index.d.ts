@@ -1,7 +1,7 @@
 declare module '@thibmaek/rn-bounce' {
 
   import { ComponentClass, ReactNode } from 'react';
-  import { StyleProp, ViewStyle } from 'react-native';
+  import { StyleProp, ViewStyle, SpringAnimationConfig } from 'react-native';
 
   interface Props {
     /* Component tree which gets animated with the Bounce component */
@@ -27,6 +27,11 @@ declare module '@thibmaek/rn-bounce' {
      * Will be called as the callback passed to Animated.start(result.finished)
      */
     onDidAppear?: () => void;
+
+    /**
+     * Animation config override.
+     */
+    animationConfig?: Omit<SpringAnimationConfig, 'useNativeDriver' | 'toValue'>
   }
 
   const Bounce: ComponentClass<Props>
