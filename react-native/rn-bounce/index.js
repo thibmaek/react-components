@@ -53,6 +53,10 @@ class Bounce extends React.Component {
     });
   }
 
+  componentWillUnmount() {
+    AccessibilityInfo.removeEventListener('reduceMotionChanged', this.handleAccessibilityOptions);
+  }
+
   handleAccessibilityOptions = (prefersReducedMotion) => this.setState(ps => ({ ...ps, prefersReducedMotion }));
 
   get directionIsHorizontal() {
