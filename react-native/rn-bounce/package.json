@@ -1,6 +1,6 @@
 {
   "name": "@thibmaek/rn-bounce",
-  "version": "1.5.0",
+  "version": "1.5.1",
   "description": "Wrapper component for animating Views with a bounce-in effect",
   "main": "index.js",
   "license": "MIT",
