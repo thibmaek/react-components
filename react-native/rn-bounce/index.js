@@ -30,11 +30,13 @@ class Bounce extends React.Component {
   animatedValue = new Animated.Value(0);
   deviceHeight = Dimensions.get("screen").height;
   deviceWidth = Dimensions.get("screen").width;
+  a11ySub = null;
 
   componentDidMount() {
-    AccessibilityInfo.addEventListener('reduceMotionChanged', this.handleAccessibilityOptions);
+    const a11ySub = AccessibilityInfo.addEventListener('reduceMotionChanged', this.handleAccessibilityOptions);
     AccessibilityInfo.isReduceMotionEnabled().then(this.handleAccessibilityOptions);
-
+    this.a11ySub = a11ySub;
+    
     this.animatedValue.setValue(0);
 
     Animated.spring(
@@ -54,7 +56,9 @@ class Bounce extends React.Component {
   }
 
   componentWillUnmount() {
-    AccessibilityInfo.removeEventListener('reduceMotionChanged', this.handleAccessibilityOptions);
+    if (this.a11ySub) {
+      this.a11ySub.remove();
+    }
   }
 
   handleAccessibilityOptions = (prefersReducedMotion) => this.setState(ps => ({ ...ps, prefersReducedMotion }));
